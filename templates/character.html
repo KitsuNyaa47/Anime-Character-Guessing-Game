@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anime Character Guessing Game</title>
+    <link rel="stylesheet" href="static/style_character.css">
+</head>
+<body>
+
+<h1>Anime Character Guessing Game</h1>
+<h2>Enter only the first name of the character below:</h2>
+<hr>
+<img src="{{ url_for('static', filename=image) }}" alt="anime image" height="450"><br>
+<form method="post">
+    <label for="guess">Your Guess: </label>
+    <input type="text" name="guess" id="guess">
+    <button type="submit" name="submit_guess">Submit</button>
+</form>
+
+<form method="post">
+    <button type="submit" name="previous">Previous</button>
+
+    <button type="submit" name="next">Next</button>
+</form>
+
+<br>
+<form method="post">
+    <button type="submit" name="reveal">Reveal Answer</button>
+</form>
+
+<p>{{ message }}</p>
+
+{% if answer %}
+    <p><strong>Answer: </strong> {{ answer }}</p>
+{% endif %}
+
+</body>
+</html>
